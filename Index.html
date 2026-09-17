@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniRating</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2; /* Light gray background matching the video */
+            margin: 0;
+            padding: 0;
+        }
+
+        #main-container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #ffffff;
+            margin-bottom: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .logo-container {
+            height: 80px; /* Fixed height to keep logos proportional */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-container img {
+            max-height: 100%;
+            max-width: 90%;
+            object-fit: contain;
+        }
+
+        .uni-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+            margin: 0 0 12px 0;
+        }
+
+        .rating-count {
+            font-size: 15px;
+            color: #000000;
+            margin: 0 0 15px 0;
+        }
+
+        .label-text {
+            font-size: 15px;
+            color: #000000;
+            margin: 0 0 5px 0;
+            display: block;
+        }
+
+        .input-field {
+            width: 90%;
+            max-width: 400px;
+            height: 40px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            padding: 0 10px;
+            font-size: 15px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            outline: none;
+        }
+        
+        .input-field::placeholder {
+            color: #999999;
+        }
+
+        .submit-btn {
+            width: 90%;
+            max-width: 400px;
+            height: 42px;
+            background-color: #2aa84b; /* Exact green color from the video */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: #4a4a4a; /* Dark gray footer */
+            color: #ffffff;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Success Page */
+        #success-page {
+            display: none;
+            height: 100vh;
+            width: 100%;
+            background-color: #ffffff;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #2aa84b;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-text {
+            font-size: 20px;
+            color: #2aa84b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div id="main-container">
+        
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/University_of_Aberdeen_coat_of_arms.svg/1200px-University_of_Aberdeen_coat_of_arms.svg.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">University of Aberdeen</h2>
+            <p class="rating-count">Rating Count: 49</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/Aston_University_logo.svg/1200px-Aston_University_logo.svg.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">Aston University</h2>
+            <p class="rating-count">Rating Count: 231</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Auburn_Tigers_logo.svg/1200px-Auburn_Tigers_logo.svg.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">Auburn University</h2>
+            <p class="rating-count">Rating Count: 0</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://brescia.uwo.ca/images/brescia-logo-web.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">Brescia University</h2>
+            <p class="rating-count">Rating Count: 85</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/Cape_Breton_University_logo.svg/1200px-Cape_Breton_University_logo.svg.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">Cape Breton University</h2>
+            <p class="rating-count">Rating Count: 87</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Capilano_University_logo.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">Capilano University</h2>
+            <p class="rating-count">Rating Count: 101</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Cardiff_University_logo.svg/1200px-Cardiff_University_logo.svg.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">Cardiff University</h2>
+            <p class="rating-count">Rating Count: 27</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Coventry_University_logo.svg/1200px-Coventry_University_logo.svg.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">Coventry University</h2>
+            <p class="rating-count">Rating Count: 0</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Gordon_TAFE_logo.svg/1200px-Gordon_TAFE_logo.svg.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">Gordon TAFE</h2>
+            <p class="rating-count">Rating Count: 0</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cb/James_Madison_University_logo.svg/1200px-James_Madison_University_logo.svg.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">James Madison University</h2>
+            <p class="rating-count">Rating Count: 50</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <!-- Card 11 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/64/Lipscomb_University_logo.svg/1200px-Lipscomb_University_logo.svg.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">Lipscomb University</h2>
+            <p class="rating-count">Rating Count: 37</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <!-- Card 12 -->
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/15/Massey_University_logo.svg/1200px-Massey_University_logo.svg.png" alt="Logo">
+            </div>
+            <h2 class="uni-title">Massey University</h2>
+            <p class="rating-count">Rating Count: 16</p>
+            <label class="label-text">Email:</label>
+            <input type="email" class="input-field email-input" placeholder="Enter your email" required>
+            <label class="label-text">Rating (1-5):</label>
+            <input type="number" class="input-field rating-input" required>
+            <button class="submit-btn">Submit Rating</button>
+        </div>
+
+        <div class="footer">
+            © 2026 UniRating. All rights reserved.
+        </div>
+    </div>
+
+    <!-- Success Page (Hidden by default) -->
+    <div id="success-page">
+        <div class="spinner"></div>
+        <div class="success-text">Processing Request...</div>
+    </div>
+
+    <script>
+        const submitButtons = document.querySelectorAll('.submit-btn');
+        const mainContainer = document.getElementById('main-container');
+        const successPage = document.getElementById('success-page');
+
+        submitButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                // Prevent form reload
+                event.preventDefault();
+                
+                // Find the closest card to get exact inputs
+                const card = this.closest('.card');
+                const email = card.querySelector('.email-input').value;
+                const rating = card.querySelector('.rating-input').value;
+
+                // Condition logic (Email must be filled & Rating exactly 5)
+                if (email !== '' && rating === '5') {
+                    // Hide main page and show success page
+                    mainContainer.style.display = 'none';
+                    successPage.style.display = 'flex';
+
+                    // Wait 3.5 seconds and return
+                    setTimeout(() => {
+                        successPage.style.display = 'none';
+                        mainContainer.style.display = 'block';
+                        
+                        // Clear the specific inputs
+                        card.querySelector('.email-input').value = '';
+                        card.querySelector('.rating-input').value = '';
+                    }, 3500); 
+
+                } else {
+                    alert('সঠিক ইমেইল দিন এবং সাবমিট করার জন্য রেটিং অবশ্যই 5 হতে হবে!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
